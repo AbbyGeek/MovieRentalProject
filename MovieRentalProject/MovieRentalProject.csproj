@@ -197,6 +197,30 @@
     <Compile Include="Migrations\202002051850377_AddedAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>202002051850377_AddedAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002051936217_updated subscription types to include subscriptionName.cs" />
+    <Compile Include="Migrations\202002051936217_updated subscription types to include subscriptionName.Designer.cs">
+      <DependentUpon>202002051936217_updated subscription types to include subscriptionName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002051939345_populating membershipNames.cs" />
+    <Compile Include="Migrations\202002051939345_populating membershipNames.Designer.cs">
+      <DependentUpon>202002051939345_populating membershipNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002052007155_AddBirthdayToCustomer.cs" />
+    <Compile Include="Migrations\202002052007155_AddBirthdayToCustomer.Designer.cs">
+      <DependentUpon>202002052007155_AddBirthdayToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002052013314_removing birthday column.cs" />
+    <Compile Include="Migrations\202002052013314_removing birthday column.Designer.cs">
+      <DependentUpon>202002052013314_removing birthday column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002052023350_add genre to movies.cs" />
+    <Compile Include="Migrations\202002052023350_add genre to movies.Designer.cs">
+      <DependentUpon>202002052023350_add genre to movies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002052030305_elaborating on movies table.cs" />
+    <Compile Include="Migrations\202002052030305_elaborating on movies table.Designer.cs">
+      <DependentUpon>202002052030305_elaborating on movies table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -267,6 +291,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Shared\_navBar.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +327,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002051850377_AddedAnnotationsToCustomerName.resx">
       <DependentUpon>202002051850377_AddedAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002051936217_updated subscription types to include subscriptionName.resx">
+      <DependentUpon>202002051936217_updated subscription types to include subscriptionName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002051939345_populating membershipNames.resx">
+      <DependentUpon>202002051939345_populating membershipNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002052007155_AddBirthdayToCustomer.resx">
+      <DependentUpon>202002052007155_AddBirthdayToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002052013314_removing birthday column.resx">
+      <DependentUpon>202002052013314_removing birthday column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002052023350_add genre to movies.resx">
+      <DependentUpon>202002052023350_add genre to movies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002052030305_elaborating on movies table.resx">
+      <DependentUpon>202002052030305_elaborating on movies table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

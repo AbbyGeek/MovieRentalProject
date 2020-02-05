@@ -112,3 +112,9 @@ C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProje
 C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.AddMembershipType.resources
 C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.PopulateMembershipTypes.resources
 C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.AddedAnnotationsToCustomerName.resources
+C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.updatedsubscriptiontypestoincludesubscriptionName.resources
+C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.populatingmembershipNames.resources
+C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.AddBirthdayToCustomer.resources
+C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.removingbirthdaycolumn.resources
+C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.addgenretomovies.resources
+C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.elaboratingonmoviestable.resources

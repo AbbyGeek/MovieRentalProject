@@ -5,4 +5,12 @@
 }
 
 <h2>@Model.Name</h2>
+<ul>
+    <li>@Model.MembershipType.MembershipName</li>
+    @if(Model.Birthdate.HasValue)
+    {
+        <li>Birthday: @Model.Birthdate</li>
+    }
+
+</ul>
 
