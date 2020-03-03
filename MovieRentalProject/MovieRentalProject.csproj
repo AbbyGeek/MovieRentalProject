@@ -45,16 +45,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -165,11 +177,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,8 +239,38 @@
     <Compile Include="Migrations\202002052030305_elaborating on movies table.Designer.cs">
       <DependentUpon>202002052030305_elaborating on movies table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002052128337_updating typo.cs" />
+    <Compile Include="Migrations\202002052128337_updating typo.Designer.cs">
+      <DependentUpon>202002052128337_updating typo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002111955492_Adding genre table.cs" />
+    <Compile Include="Migrations\202002111955492_Adding genre table.Designer.cs">
+      <DependentUpon>202002111955492_Adding genre table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002112215341_trying to add genre table.cs" />
+    <Compile Include="Migrations\202002112215341_trying to add genre table.Designer.cs">
+      <DependentUpon>202002112215341_trying to add genre table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002121532082_updating tables.cs" />
+    <Compile Include="Migrations\202002121532082_updating tables.Designer.cs">
+      <DependentUpon>202002121532082_updating tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002121534408_adding Genre to movie model.cs" />
+    <Compile Include="Migrations\202002121534408_adding Genre to movie model.Designer.cs">
+      <DependentUpon>202002121534408_adding Genre to movie model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003031702384_updating db.cs" />
+    <Compile Include="Migrations\202003031702384_updating db.Designer.cs">
+      <DependentUpon>202003031702384_updating db.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003031925310_stock number label change.cs" />
+    <Compile Include="Migrations\202003031925310_stock number label change.Designer.cs">
+      <DependentUpon>202003031925310_stock number label change.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -230,7 +278,9 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Viewodels\RandomMovieViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
+    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -292,6 +342,8 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Shared\_navBar.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -345,6 +397,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002052030305_elaborating on movies table.resx">
       <DependentUpon>202002052030305_elaborating on movies table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002052128337_updating typo.resx">
+      <DependentUpon>202002052128337_updating typo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002111955492_Adding genre table.resx">
+      <DependentUpon>202002111955492_Adding genre table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002112215341_trying to add genre table.resx">
+      <DependentUpon>202002112215341_trying to add genre table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002121532082_updating tables.resx">
+      <DependentUpon>202002121532082_updating tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002121534408_adding Genre to movie model.resx">
+      <DependentUpon>202002121534408_adding Genre to movie model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003031702384_updating db.resx">
+      <DependentUpon>202003031702384_updating db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003031925310_stock number label change.resx">
+      <DependentUpon>202003031925310_stock number label change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
