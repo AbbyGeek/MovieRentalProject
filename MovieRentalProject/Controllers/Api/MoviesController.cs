@@ -1,10 +1,13 @@
-﻿using AutoMapper;
-using MovieRentalProject.Dtos;
-using MovieRentalProject.Models;
+﻿using MovieRentalProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Data.Entity;
 using System.Web.Http;
+using MovieRentalProject.Dtos;
+using AutoMapper;
 
 namespace MovieRentalProject.Controllers.Api
 {
@@ -19,7 +22,8 @@ namespace MovieRentalProject.Controllers.Api
         //GET api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movieDtos = _context.Movies.Include(m => m.Genre).ToList().Select(Mapper.Map<Movie, MovieDto>);
+            return movieDtos;
         }
 
         //GET /api/movies/1
