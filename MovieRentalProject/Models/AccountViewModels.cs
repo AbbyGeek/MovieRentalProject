@@ -11,6 +11,9 @@ namespace MovieRentalProject.Models
         [Required]
         [Display(Name ="Drivers Licence Number")]
         public string DrivingLicense { get; set; }
+        [Required]
+        [Display(Name = "Phone Number")]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -86,6 +89,10 @@ namespace MovieRentalProject.Models
         [Required]
         [Display(Name ="Drivers Licence Number")]
         public string DrivingLicence { get; set; }
+
+        [Required]
+        [Display(Name = "Phone Number")]
+        public string Phone { get; set; }
     }
 
     public class ResetPasswordViewModel

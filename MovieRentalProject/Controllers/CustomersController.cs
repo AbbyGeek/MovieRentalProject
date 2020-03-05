@@ -24,8 +24,9 @@ namespace MovieRentalProject.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-
-            return View();
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("CustomerList");
+            return View("CustomerReadOnlyList");
         }
 
         public ActionResult Details(int id)
@@ -38,6 +39,7 @@ namespace MovieRentalProject.Controllers
             return View(customer);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -80,6 +82,7 @@ namespace MovieRentalProject.Controllers
             return RedirectToAction("Index", "Customers");
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
@@ -95,6 +98,7 @@ namespace MovieRentalProject.Controllers
             return View("CustomerForm", viewModel);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Delete(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
