@@ -133,3 +133,5 @@ C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProje
 C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\bin\System.Web.Http.WebHost.xml
 C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\bin\AutoMapper.dll
 C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\bin\AutoMapper.xml
+C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.seedUsers.resources
+C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.AddDrivingLicenceToUser.resources

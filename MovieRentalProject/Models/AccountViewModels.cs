@@ -8,6 +8,9 @@ namespace MovieRentalProject.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Required]
+        [Display(Name ="Drivers Licence Number")]
+        public string DrivingLicense { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -79,6 +82,10 @@ namespace MovieRentalProject.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name ="Drivers Licence Number")]
+        public string DrivingLicence { get; set; }
     }
 
     public class ResetPasswordViewModel

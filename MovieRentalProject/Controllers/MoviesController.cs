@@ -22,8 +22,11 @@ namespace MovieRentalProject.Controllers
         }
         public ViewResult Index()
         {
-            return View();
+            if(User.IsInRole(RoleName.CanManageMovies))
+                return View("List");
+            return View("ReadOnlyList");
         }
+        [Authorize(Roles =RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -74,7 +77,7 @@ namespace MovieRentalProject.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Movies");
         }
-
+        [Authorize(Roles =RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
@@ -88,7 +91,7 @@ namespace MovieRentalProject.Controllers
             };
             return View("MovieForm", viewModel);
         }
-
+        [Authorize(Roles =RoleName.CanManageMovies)]
         public ActionResult Delete(int id)
         {
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);

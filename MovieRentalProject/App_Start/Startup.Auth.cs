@@ -54,9 +54,9 @@ namespace MovieRentalProject
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "291095168524631",
+               appSecret: "1472a990828dcb6c9904c622a7d1eea3");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
