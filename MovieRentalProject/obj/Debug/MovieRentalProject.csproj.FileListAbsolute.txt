@@ -137,3 +137,8 @@ C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProje
 C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.AddDrivingLicenceToUser.resources
 C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.MaybeAddPhoneNumber.resources
 C:\Users\awessels\OneDrive - Knex\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\obj\Debug\MovieRentalProject.Migrations.test.resources
+C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\bin\Glimpse.Ado.dll
+C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\bin\Glimpse.AspNet.dll
+C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\bin\Glimpse.Core.dll
+C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\bin\Glimpse.EF6.dll
+C:\Users\awessels\OneDrive - KNEX\Documents\Projects\New folder\MovieRentalProject\MovieRentalProject\bin\Glimpse.Mvc5.dll
