@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MovieRentalProject.Interfaces;
 
 namespace MovieRentalProject.Models
 {
@@ -26,7 +27,7 @@ namespace MovieRentalProject.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Movie> Movies { get; set; }
@@ -36,9 +37,10 @@ namespace MovieRentalProject.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+
         }
 
-        public static ApplicationDbContext Create()
+        public ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }

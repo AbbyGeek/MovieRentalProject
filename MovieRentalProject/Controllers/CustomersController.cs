@@ -6,17 +6,23 @@ using System.Web.Mvc;
 using MovieRentalProject.Models;
 using System.Data.Entity;
 using MovieRentalProject.ViewModels;
+using MovieRentalProject.Interfaces;
 
 namespace MovieRentalProject.Controllers
 {
     public class CustomersController : Controller
     {
-        private ApplicationDbContext _context;
+        private IApplicationDbContext _context;
 
+        public CustomersController(IApplicationDbContext context)
+        {
+            _context = context;
+        }
         public CustomersController()
         {
             _context = new ApplicationDbContext();
         }
+
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
@@ -36,7 +42,7 @@ namespace MovieRentalProject.Controllers
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View("Details", customer);
         }
 
         [Authorize(Roles = RoleName.CanManageMovies)]
