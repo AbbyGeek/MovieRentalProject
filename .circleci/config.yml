@@ -1,11 +1,42 @@
 ﻿version: 2.1
+orbs:
+  windows: circleci/windows@2.2.0
+
 jobs:
-  build:
-    docker: 
-      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+  test:
+    description: Setup and run application tests
+    executor:
+      name: windows/default
     steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - checkout
+      - restore_cache:
+        - keys:
+          - dotnet-packages-v1- {{ checksum "MovieRentalProject/MovieRentalProject.csproj"}}
+        - run:
+            name: "Install project dependencies"
+            command: dotnet.exe restore
+        - save_cache:
+            paths:
+            - C:\Users\circleci\.nuget\packages
+          key: dotnet-packages-v1-{{ checksum "MovieRentalProject/MovieRentalProject.csproj" }}
+        - run:
+            name: "Run Application Tests"
+            command: dotnet.exe test -v n --results-directory:test_coverage --collect:"Code Coverage"
+        - store_artifacts:
+            path: C:\Users\circleci\project\test_coverage
+  build:
+    description: Build Aplication With Release Configuration
+    executor:
+      name: windows/default
+    steps:
+      - checkout
       - run:
-          name: NUnit Tests
-          command: cd tests; dotnet test
+          name: "Build Application According To Some Given Information"
+          command: dotnet.exe build --configuration Release
+workflows:
+  test_and_build:
+    jobs:
+      - test
+      - build:
+          requires:
+            - test 
