@@ -11,7 +11,7 @@ jobs:
       - checkout
       - restore_cache:
         - keys:
-          - dotnet-packages-v1- {{ checksum "MovieRentalProject/MovieRentalProject.csproj"}}
+          - dotnet-packages-v1-{{ checksum "MovieRentalProject/MovieRentalProject.csproj"}}
         - run:
             name: "Install project dependencies"
             command: dotnet.exe restore
