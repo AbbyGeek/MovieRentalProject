@@ -8,4 +8,4 @@ jobs:
       - run: echo "hello world" # run the `echo` command
       - run:
           name: NUnit Tests
-          command: dotnet test
+          command: cd tests; dotnet test
