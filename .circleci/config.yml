@@ -1,8 +1,37 @@
 ﻿version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
+
 jobs:
-  build:
-    docker: 
-      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+  PR_Test:
+    executor:
+      name: win/default
     steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      # default shell is Powershell
+      # - run:            
+      #    command: $(echo powershell | Out-Host; $?) -and $(echo test | Out-Host; $?)
+      #    shell: powershell.exe
+      - run:
+         command: echo "Job for PR"
+         shell: bash.exe
+  Master_Test:
+    executor:
+      name: win/default
+    steps:
+      - run:
+         command: echo "Job for master"
+         shell: cmd.exe
+
+workflows:
+  version: 2.1
+  MergeToMaster:
+    jobs:
+      - Master_Test:
+          filters:
+            branches:
+              only: master
+  PRPushes:
+    jobs:
+      - PR_Test
+          
