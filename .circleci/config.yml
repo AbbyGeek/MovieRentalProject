@@ -22,7 +22,7 @@ jobs:
       - run:
          command: echo "Job for master"
          shell: cmd.exe
-         
+
 workflows:
   version: 2.1
   MergeToMaster:
@@ -34,9 +34,4 @@ workflows:
               - master
   PRPushes:
     jobs:
-      - PR_Test:
-        filters:
-          branches:
-            only:
-              -/^.*/
-              - master
+      - PR_Test
