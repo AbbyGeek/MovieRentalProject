@@ -9,20 +9,20 @@ jobs:
       name: win/default
     steps:
       # default shell is Powershell
-      - run:            
-         command: $(echo powershell | Out-Host; $?) -and $(echo test | Out-Host; $?)
-         shell: powershell.exe
+      # - run:            
+      #    command: $(echo powershell | Out-Host; $?) -and $(echo test | Out-Host; $?)
+      #    shell: powershell.exe
       - run:
-         command: echo bash && echo test
+         command: echo "Job for PR"
          shell: bash.exe
-
   Master_Test:
     executor:
       name: win/default
     steps:
       - run:
-         command: echo cmd & echo test
+         command: echo "Job for master"
          shell: cmd.exe
+         
 workflows:
   version: 2.1
   MergeToMaster:
