@@ -29,9 +29,8 @@ workflows:
     jobs:
       - Master_Test:
         filters:
-          branches:
-            only:
-              - master
+            branches:
+              only: master
   PRPushes:
     jobs:
       - PR_Test
