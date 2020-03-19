@@ -22,8 +22,6 @@ jobs:
       - run:
          command: echo "Job for master"
          shell: cmd.exe
-  Build_PR:
-    working_directory:
 
 workflows:
   version: 2.1
@@ -36,5 +34,5 @@ workflows:
               - master
   PRPushes:
     jobs:
-      - PR_Test:
+      - PR_Test
           
