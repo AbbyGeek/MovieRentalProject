@@ -1,17 +1,20 @@
 ﻿version: 2.1
+
 orbs:
   win: circleci/windows@2.2.0
+
 jobs:
   build:
     executor:
       name: win/default
-    steps: #default shell is powershell
+    steps:
+      # default shell is Powershell
+      - run:            
+         command: $(echo hello | Out-Host; $?) -and $(echo world | Out-Host; $?)
+         shell: powershell.exe
       - run:
-        command: $(echo hello | Out-Host; $?) -and $(echo world | Out-Host; $?)
-        shell: powershell.exe
+         command: echo hello && echo world
+         shell: bash.exe
       - run:
-        command: echo hello && echo world
-        shell: bash.exe
-      - run:
-        command: echo hello & echo world
-        shell: cmd.exe
+         command: echo hello & echo world
+         shell: cmd.exe
