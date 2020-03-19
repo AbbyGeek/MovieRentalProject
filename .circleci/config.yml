@@ -4,17 +4,39 @@ orbs:
   win: circleci/windows@2.2.0
 
 jobs:
-  build:
+  PR_Test:
     executor:
       name: win/default
     steps:
       # default shell is Powershell
       - run:            
-         command: $(echo hello | Out-Host; $?) -and $(echo world | Out-Host; $?)
+         command: $(echo powershell | Out-Host; $?) -and $(echo test | Out-Host; $?)
          shell: powershell.exe
       - run:
-         command: echo hello && echo world
+         command: echo bash && echo test
          shell: bash.exe
+
+  Master_Test:
+    executor:
+      name: win/default
+    steps:
       - run:
-         command: echo hello & echo world
+         command: echo cmd & echo test
          shell: cmd.exe
+workflows:
+  version: 2.1
+  MergeToMaster:
+    jobs:
+      - Master_Test:
+        filters:
+          branches:
+            only:
+              - master
+  PRPushes:
+    jobs:
+      - PR_Test:
+        filters:
+          branches:
+            only:
+              -/^.*/
+              - master
